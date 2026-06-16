@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stochastik & Kombinatorik – Das ultimative Lernportal</title>
+    <title>Stochastik & Kombinatorik – Kompakter Lernzettel</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -25,257 +25,183 @@
     <style>
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #080c14;
-            color: #f1f5f9;
+            background-color: #f8fafc;
+            color: #0f172a;
         }
         .bento-card {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 1.5rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 1.25rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease;
         }
         .bento-card:hover {
-            border-color: rgba(99, 102, 241, 0.35);
-            box-shadow: 0 12px 30px -10px rgba(99, 102, 241, 0.15);
-            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            border-color: #cbd5e1;
         }
-        /* Custom Scrollbar für die mathematischen Tabellen */
         .custom-scrollbar::-webkit-scrollbar {
-            height: 6px;
+            height: 5px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
-            background: rgba(15, 23, 42, 0.6);
+            background: #f1f5f9;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: rgba(99, 102, 241, 0.3);
-            border-radius: 10px;
+            background: #cbd5e1;
+            border-radius: 9999px;
         }
     </style>
 </head>
-<body class="min-h-screen pb-16">
+<body class="min-h-screen pb-20">
 
-    <!-- Header -->
-    <header class="border-b border-slate-900 bg-slate-950/80 sticky top-0 z-50 backdrop-blur-md">
+    <!-- Header (Schlank, modern & clean) -->
+    <header class="border-b border-slate-200 bg-white/80 sticky top-0 z-50 backdrop-blur-md shrink-0 shadow-sm">
         <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div class="flex items-center gap-4">
-                <div class="bg-gradient-to-tr from-indigo-600 to-indigo-500 text-white p-3 rounded-2xl shadow-lg shadow-indigo-500/20">
-                    <i class="fa-solid fa-shapes text-2xl"></i>
+            <div class="flex items-center gap-3">
+                <div class="bg-indigo-600 text-white p-2.5 rounded-xl">
+                    <i class="fa-solid fa-file-invoice text-xl"></i>
                 </div>
                 <div>
-                    <h1 class="text-xl font-bold tracking-tight">Stochastik &amp; Kombinatorik</h1>
-                    <p class="text-xs text-slate-400 font-medium tracking-wide uppercase">Reine Formel- &amp; Theorie-Übersicht • Klasse 11 (LB 4)</p>
+                    <h1 class="text-lg font-bold tracking-tight text-slate-950">Stochastik II – Lernzettel</h1>
+                    <p class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Klasse 11 • Lernbereich 4</p>
                 </div>
             </div>
-            <div class="flex items-center gap-2 bg-slate-900/90 px-4 py-2 rounded-2xl border border-slate-800 text-xs">
-                <span class="w-2.5 h-2.5 rounded-full bg-indigo-500 animate-pulse"></span>
-                <span class="text-slate-300 font-medium">Abstrakter Mathe-Lernzettel</span>
+            <div class="flex gap-2 text-xs font-semibold text-slate-600">
+                <a href="#kombinatorik" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg transition">Kombinatorik</a>
+                <a href="#bayes" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg transition">Bayes</a>
+                <a href="#bernoulli" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg transition">Bernoulli</a>
             </div>
         </div>
     </header>
 
     <!-- Hauptinhalt -->
-    <main class="max-w-7xl mx-auto px-6 mt-8 space-y-8">
-        
-        <!-- INTRO (Bento Banner) -->
-        <div class="bento-card p-8 bg-gradient-to-br from-indigo-950/30 via-slate-950/50 to-slate-950/80 border-l-4 border-l-indigo-500 relative overflow-hidden">
-            <div class="absolute -right-16 -top-16 w-48 h-48 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="relative z-10 max-w-4xl">
-                <h2 class="text-2xl font-bold tracking-tight mb-2 text-white">Mathematischer Formel- und Theorie-Spickzettel</h2>
-                <p class="text-slate-300 text-sm leading-relaxed">
-                    Diese Übersicht enthält alle Definitionen, Sätze und Gesetzmäßigkeiten deiner aktuellen Unterrichtseinheit in rein mathematisch-abstrakter Form. 
-                    Sie dient als Referenz und Strukturhilfe für die <span class="text-indigo-400 font-semibold">Kombinatorik (Abzählverfahren)</span>, die 
-                    <span class="text-purple-400 font-semibold">bedingte Wahrscheinlichkeit</span> sowie die 
-                    <span class="text-pink-400 font-semibold">Binomialverteilung (Bernoulli-Formel)</span>.
-                </p>
-            </div>
+    <main class="max-w-7xl mx-auto px-6 mt-8 space-y-12">
+
+        <!-- EINLEITUNG (Banner) -->
+        <div class="bento-card p-6 md:p-8 bg-gradient-to-r from-indigo-50 via-slate-50 to-white border-l-4 border-l-indigo-600">
+            <h2 class="text-xl font-bold text-slate-900 tracking-tight">Kompakter Theorie- &amp; Formel-Lernzettel</h2>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed max-w-4xl">
+                Dieser Lernzettel fasst alle Definitionen, Sätze und Gesetzmäßigkeiten deiner aktuellen Unterrichtseinheit in rein mathematisch-abstrakter Form zusammen. Er ist für schnelle Wiederholungen vor Klausuren optimiert und schützt komplexe Formeln durch ein absolut überlaufsicheres Spaltendesign.
+            </p>
         </div>
 
         <!-- SEKTION 1: KOMBINATORIK -->
         <section id="kombinatorik" class="space-y-6">
-            <div class="flex items-center gap-3">
-                <span class="bg-indigo-500/10 text-indigo-400 w-9 h-9 rounded-xl flex items-center justify-center font-bold border border-indigo-500/20 shadow-sm shadow-indigo-500/5">1</span>
-                <h2 class="text-2xl font-bold tracking-tight">Kombinatorik – Entscheidungsbaum &amp; Formelstrukturen</h2>
+            <div class="flex items-center gap-3 border-b border-slate-200 pb-3">
+                <span class="bg-indigo-50 text-indigo-600 w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-indigo-100">1</span>
+                <h2 class="text-xl font-bold tracking-tight text-slate-900">Kombinatorik – Abzählverfahren</h2>
             </div>
 
-            <!-- Visueller Pfad-Finder (Entscheidungsbaum als Flowchart) -->
-            <div class="bento-card p-6 md:p-8">
-                <h3 class="text-lg font-bold mb-2 text-indigo-300 flex items-center gap-2">
-                    <i class="fa-solid fa-diagram-project text-indigo-400"></i> Der kombinatorische Entscheidungsbaum (Strukturmodell)
+            <!-- Entscheidungsbaum-Kachel -->
+            <div class="bento-card p-6">
+                <h3 class="text-sm font-bold text-indigo-600 uppercase tracking-wider mb-4 flex items-center gap-1.5">
+                    <i class="fa-solid fa-bezier-curve"></i> Der kombinatorische Pfadfinder
                 </h3>
-                <p class="text-xs text-slate-400 mb-6">Ablaufdiagramm zur Bestimmung des mathematisch korrekten Abzählverfahrens für eine beliebige Menge.</p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
+                    
                     <!-- Schritt 1 -->
-                    <div class="bg-slate-950/50 p-6 rounded-2xl border border-slate-900 flex flex-col justify-between">
-                        <div>
-                            <span class="text-[10px] font-bold text-indigo-400 uppercase tracking-widest block mb-1">1. Auswahlumfang</span>
-                            <h4 class="font-bold text-sm text-white mb-3">Werden alle Elemente der Menge einbezogen?</h4>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="w-5 h-5 rounded bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">1</span>
+                            <span class="font-bold text-slate-800">Umfang der Auswahl</span>
                         </div>
-                        <div class="space-y-2 text-xs text-slate-300">
-                            <div class="p-3 bg-slate-900/40 rounded-xl border border-slate-800/80">
-                                <strong class="text-indigo-300 block mb-1">Ja (Gesamtmenge, $k = n$):</strong>
-                                Es handelt sich um eine bloße Umsortierung (Anordnung) aller Elemente. <br>
-                                <span class="inline-flex items-center gap-1.5 mt-2 font-semibold text-indigo-400 bg-indigo-500/10 px-2 py-1 rounded-md">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span> Permutation
-                                </span>
-                            </div>
-                            <div class="p-3 bg-slate-900/40 rounded-xl border border-slate-800/80">
-                                <strong class="text-slate-400 block mb-0.5">Nein (Stichprobe, $k < n$):</strong>
-                                Es wird eine Teilmenge aus $k$ Elementen entnommen. <br>
-                                <span class="text-slate-400 font-medium block mt-1.5">→ Weiter zu Schritt 2</span>
-                            </div>
+                        <p class="text-slate-500 leading-relaxed">
+                            Werden alle Elemente angeordnet ($k = n$) oder wird eine kleinere Stichprobe gezogen ($k < n$)?
+                        </p>
+                        <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100 font-semibold text-[11px]">
+                            • Alle Elemente $\rightarrow$ Permutation<br>
+                            • Stichprobe $\rightarrow$ Schritt 2 betrachten
                         </div>
                     </div>
 
                     <!-- Schritt 2 -->
-                    <div class="bg-slate-950/50 p-6 rounded-2xl border border-slate-900 flex flex-col justify-between">
-                        <div>
-                            <span class="text-[10px] font-bold text-indigo-400 uppercase tracking-widest block mb-1">2. Reihenfolge</span>
-                            <h4 class="font-bold text-sm text-white mb-3">Ist die Reihenfolge der Entnahme relevant?</h4>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="w-5 h-5 rounded bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">2</span>
+                            <span class="font-bold text-slate-800">Reihenfolge</span>
                         </div>
-                        <div class="space-y-2 text-xs text-slate-300">
-                            <div class="p-3 bg-slate-900/40 rounded-xl border border-slate-800/80">
-                                <strong class="text-purple-300 block mb-1">Ja (geordnet):</strong>
-                                Die Position oder Reihenfolge der Elemente beeinflusst das Ergebnis. <br>
-                                <span class="inline-flex items-center gap-1.5 mt-2 font-semibold text-purple-400 bg-purple-500/10 px-2 py-1 rounded-md">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span> Variation
-                                </span>
-                            </div>
-                            <div class="p-3 bg-slate-900/40 rounded-xl border border-slate-800/80">
-                                <strong class="text-pink-300 block mb-1">Nein (ungeordnet):</strong>
-                                Es zählt ausschließlich das am Ende resultierende Mengenergebnis. <br>
-                                <span class="inline-flex items-center gap-1.5 mt-2 font-semibold text-pink-400 bg-pink-500/10 px-2 py-1 rounded-md">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-pink-400"></span> Kombination
-                                </span>
-                            </div>
+                        <p class="text-slate-500 leading-relaxed">
+                            Macht die Entnahme-Reihenfolge einen Unterschied für das Endergebnis?
+                        </p>
+                        <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100 font-semibold text-[11px]">
+                            • Reihenfolge wichtig $\rightarrow$ Variation<br>
+                            • Reihenfolge egal $\rightarrow$ Kombination
                         </div>
                     </div>
 
                     <!-- Schritt 3 -->
-                    <div class="bg-slate-950/50 p-6 rounded-2xl border border-slate-900 flex flex-col justify-between">
-                        <div>
-                            <span class="text-[10px] font-bold text-indigo-400 uppercase tracking-widest block mb-1">3. Wiederholung</span>
-                            <h4 class="font-bold text-sm text-white mb-3">Dürfen Elemente mehrfach ausgewählt werden?</h4>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="w-5 h-5 rounded bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">3</span>
+                            <span class="font-bold text-slate-800">Elementwiederholung</span>
                         </div>
-                        <div class="space-y-2 text-xs text-slate-300">
-                            <div class="p-3 bg-slate-900/40 rounded-xl border border-slate-800/80">
-                                <strong class="text-slate-300 block mb-1">Nein (ohne Wiederholung):</strong>
-                                Jedes Element darf maximal einmal in der Auswahl vorkommen (ohne Zurücklegen).
-                            </div>
-                            <div class="p-3 bg-slate-900/40 rounded-xl border border-slate-800/80">
-                                <strong class="text-indigo-300 block mb-1">Ja (mit Wiederholung):</strong>
-                                Elemente können identisch sein oder mehrfach gezogen werden (mit Zurücklegen).
-                            </div>
+                        <p class="text-slate-500 leading-relaxed">
+                            Können Elemente mehrfach ausgewählt werden (mit Zurücklegen)?
+                        </p>
+                        <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100 font-semibold text-[11px]">
+                            • Ohne Wiederholung (kein Zurücklegen)<br>
+                            • Mit Wiederholung (mit Zurücklegen)
                         </div>
                     </div>
+
                 </div>
             </div>
 
-            <!-- Die 6 Fälle im direkten Vergleich auf dem "Blatt" -->
+            <!-- Drei-Säulen-Vergleich der Formeln -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 
-                <!-- PERMUTATION -->
-                <div class="bento-card rounded-3xl overflow-hidden border-t-4 border-t-indigo-500 flex flex-col h-full justify-between">
-                    <div class="bg-indigo-950/20 p-5 border-b border-slate-900">
-                        <span class="text-[10px] text-indigo-400 font-bold uppercase tracking-wider block">Fall A: Alle Elemente ($k = n$)</span>
-                        <h3 class="text-lg font-bold text-white mt-1">Permutation</h3>
-                    </div>
-                    <div class="p-6 space-y-6 flex-1 flex flex-col justify-between">
-                        <!-- Ohne Wiederholung -->
-                        <div class="space-y-2">
-                            <div class="flex items-center justify-between">
-                                <span class="text-[10px] bg-indigo-500/10 text-indigo-300 px-2 py-1 rounded-md font-bold uppercase tracking-wide">Ohne Wiederholung</span>
-                                <span class="text-xs text-slate-400">Elemente unterscheidbar</span>
-                            </div>
-                            <div class="py-2 text-center bg-slate-950/40 rounded-xl border border-slate-900">
-                                <div class="font-mono text-2xl text-indigo-300 font-bold">$$P_n = n!$$</div>
-                            </div>
-                            <p class="text-xs text-slate-400 leading-relaxed">Anzahl der Möglichkeiten, $n$ unterschiedliche Elemente in einer Reihe anzuordnen.</p>
-                        </div>
+                <!-- Permutation -->
+                <div class="bento-card p-6 border-t-4 border-t-indigo-600 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <span class="text-[10px] text-indigo-600 font-bold uppercase tracking-wider block">Gesamtmenge ($k = n$)</span>
+                        <h4 class="font-bold text-slate-900 text-sm">Permutation</h4>
                         
-                        <div class="border-t border-slate-900 my-4"></div>
-                        
-                        <!-- Mit Wiederholung -->
-                        <div class="space-y-2">
-                            <div class="flex items-center justify-between">
-                                <span class="text-[10px] bg-indigo-500/10 text-indigo-300 px-2 py-1 rounded-md font-bold uppercase tracking-wide">Mit Wiederholung</span>
-                                <span class="text-xs text-slate-400">Identische Elementgruppen</span>
+                        <div class="space-y-3 pt-2">
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                                <span class="text-[9px] font-bold text-slate-400 uppercase">Ohne Wiederholung</span>
+                                <div class="font-mono text-lg font-bold text-slate-900 mt-1">$$P_n = n!$$</div>
                             </div>
-                            <div class="py-2 text-center bg-slate-950/40 rounded-xl border border-slate-900">
-                                <div class="font-mono text-xl text-indigo-300 font-bold">$$P_n^{k_1, k_2, \dots, k_r} = \frac{n!}{k_1! \cdot k_2! \cdot \dots \cdot k_r!}$$</div>
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                                <span class="text-[9px] font-bold text-slate-400 uppercase">Mit Wiederholung</span>
+                                <div class="font-mono text-base font-bold text-slate-900 mt-1">$$P_n^{k_1,\dots} = \frac{n!}{k_1! \cdot k_2! \dots}$$</div>
                             </div>
-                            <p class="text-xs text-slate-400 leading-relaxed">Umsortierung von $n$ Elementen, von denen jeweils Gruppen aus $k_1, k_2, \dots$ identisch sind.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- VARIATION -->
-                <div class="bento-card rounded-3xl overflow-hidden border-t-4 border-t-purple-500 flex flex-col h-full justify-between">
-                    <div class="bg-purple-950/20 p-5 border-b border-slate-900">
-                        <span class="text-[10px] text-purple-400 font-bold uppercase tracking-wider block">Fall B: Stichprobe ($k < n$), Geordnet</span>
-                        <h3 class="text-lg font-bold text-white mt-1">Variation</h3>
-                    </div>
-                    <div class="p-6 space-y-6 flex-1 flex flex-col justify-between">
-                        <!-- Ohne Wiederholung -->
-                        <div class="space-y-2">
-                            <div class="flex items-center justify-between">
-                                <span class="text-[10px] bg-purple-500/10 text-purple-300 px-2 py-1 rounded-md font-bold uppercase tracking-wide">Ohne Wiederholung</span>
-                                <span class="text-xs text-slate-400">Ohne Zurücklegen</span>
-                            </div>
-                            <div class="py-2 text-center bg-slate-950/40 rounded-xl border border-slate-900">
-                                <div class="font-mono text-2xl text-purple-300 font-bold">$$V_n^k = \frac{n!}{(n-k)!}$$</div>
-                            </div>
-                            <p class="text-xs text-slate-400 leading-relaxed">Auswahl von $k$ Elementen aus einer Gesamtmenge $n$ unter Beachtung der Reihenfolge, ohne Zurücklegen.</p>
-                        </div>
+                <!-- Variation -->
+                <div class="bento-card p-6 border-t-4 border-t-purple-600 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <span class="text-[10px] text-purple-600 font-bold uppercase tracking-wider block">Stichprobe, geordnet</span>
+                        <h4 class="font-bold text-slate-900 text-sm">Variation</h4>
                         
-                        <div class="border-t border-slate-900 my-4"></div>
-                        
-                        <!-- Mit Wiederholung -->
-                        <div class="space-y-2">
-                            <div class="flex items-center justify-between">
-                                <span class="text-[10px] bg-purple-500/10 text-purple-300 px-2 py-1 rounded-md font-bold uppercase tracking-wide">Mit Wiederholung</span>
-                                <span class="text-xs text-slate-400">Mit Zurücklegen</span>
+                        <div class="space-y-3 pt-2">
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                                <span class="text-[9px] font-bold text-slate-400 uppercase">Ohne Wiederholung</span>
+                                <div class="font-mono text-lg font-bold text-purple-700 mt-1">$$V_n^k = \frac{n!}{(n-k)!}$$</div>
                             </div>
-                            <div class="py-2 text-center bg-slate-950/40 rounded-xl border border-slate-900">
-                                <div class="font-mono text-2xl text-purple-300 font-bold">$$V_n^k = n^k$$</div>
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                                <span class="text-[9px] font-bold text-slate-400 uppercase">Mit Wiederholung</span>
+                                <div class="font-mono text-lg font-bold text-purple-700 mt-1">$$V_n^k = n^k$$</div>
                             </div>
-                            <p class="text-xs text-slate-400 leading-relaxed">Auswahl von $k$ Elementen aus einer Gesamtmenge $n$ unter Beachtung der Reihenfolge, mit Zurücklegen.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- KOMBINATION -->
-                <div class="bento-card rounded-3xl overflow-hidden border-t-4 border-t-pink-500 flex flex-col h-full justify-between">
-                    <div class="bg-pink-950/20 p-5 border-b border-slate-900">
-                        <span class="text-[10px] text-pink-400 font-bold uppercase tracking-wider block">Fall C: Stichprobe ($k < n$), Ungeordnet</span>
-                        <h3 class="text-lg font-bold text-white mt-1">Kombination</h3>
-                    </div>
-                    <div class="p-6 space-y-6 flex-1 flex flex-col justify-between">
-                        <!-- Ohne Wiederholung -->
-                        <div class="space-y-2">
-                            <div class="flex items-center justify-between">
-                                <span class="text-[10px] bg-pink-500/10 text-pink-300 px-2 py-1 rounded-md font-bold uppercase tracking-wide">Ohne Wiederholung</span>
-                                <span class="text-xs text-slate-400 font-medium text-slate-400">Ohne Zurücklegen</span>
-                            </div>
-                            <div class="py-2 text-center bg-slate-950/40 rounded-xl border border-slate-900">
-                                <div class="font-mono text-2xl text-pink-300 font-bold">$$K_n^k = \binom{n}{k}$$</div>
-                            </div>
-                            <p class="text-xs text-slate-400 leading-relaxed">Auswahl von $k$ Elementen aus einer Gesamtmenge $n$ ohne Beachtung der Reihenfolge, ohne Zurücklegen.</p>
-                        </div>
+                <!-- Kombination -->
+                <div class="bento-card p-6 border-t-4 border-t-pink-600 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <span class="text-[10px] text-pink-600 font-bold uppercase tracking-wider block">Stichprobe, ungeordnet</span>
+                        <h4 class="font-bold text-slate-900 text-sm">Kombination</h4>
                         
-                        <div class="border-t border-slate-900 my-4"></div>
-                        
-                        <!-- Mit Wiederholung -->
-                        <div class="space-y-2">
-                            <div class="flex items-center justify-between">
-                                <span class="text-[10px] bg-pink-500/10 text-pink-300 px-2 py-1 rounded-md font-bold uppercase tracking-wide">Mit Wiederholung</span>
-                                <span class="text-xs text-slate-400">Mit Zurücklegen</span>
+                        <div class="space-y-3 pt-2">
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                                <span class="text-[9px] font-bold text-slate-400 uppercase">Ohne Wiederholung</span>
+                                <div class="font-mono text-lg font-bold text-pink-700 mt-1">$$K_n^k = \binom{n}{k}$$</div>
                             </div>
-                            <div class="py-2 text-center bg-slate-950/40 rounded-xl border border-slate-900">
-                                <div class="font-mono text-xl text-pink-300 font-bold">$$K_n^k = \binom{n+k-1}{k}$$</div>
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                                <span class="text-[9px] font-bold text-slate-400 uppercase">Mit Wiederholung</span>
+                                <div class="font-mono text-lg font-bold text-pink-700 mt-1">$$K_n^k = \binom{n+k-1}{k}$$</div>
                             </div>
-                            <p class="text-xs text-slate-400 leading-relaxed">Auswahl von $k$ Elementen aus einer Gesamtmenge $n$ ohne Beachtung der Reihenfolge, mit Zurücklegen.</p>
                         </div>
                     </div>
                 </div>
@@ -283,359 +209,260 @@
             </div>
         </section>
 
-        <!-- SEKTION 2: BEDINGTE WAHRSCHEINLICHKEIT & SATZ VON BAYES -->
+        <!-- SEKTION 2: BEDINGTE WAHRSCHEINLICHKEIT & BAYES -->
         <section id="bayes" class="space-y-6">
-            <div class="flex items-center gap-3">
-                <span class="bg-purple-500/10 text-purple-400 w-9 h-9 rounded-xl flex items-center justify-center font-bold border border-purple-500/20 shadow-sm shadow-purple-500/5">2</span>
-                <h2 class="text-2xl font-bold tracking-tight">Bedingte Wahrscheinlichkeit &amp; Satz von Bayes</h2>
+            <div class="flex items-center gap-3 border-b border-slate-200 pb-3">
+                <span class="bg-purple-50 text-purple-600 w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-purple-100">2</span>
+                <h2 class="text-xl font-bold tracking-tight text-slate-900">Bedingte Wahrscheinlichkeit &amp; Satz von Bayes</h2>
             </div>
 
-            <!-- Zweifache Mehrfeldertafel visualisiert anhand algebraischer Symbole -->
+            <!-- Zweifache Vierfeldertafel & Satz von Bayes im Zwei-Spalten-Layout -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 
-                <div class="bento-card p-6 md:p-8 space-y-4 flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-lg font-bold text-purple-300 flex items-center gap-2">
-                            <i class="fa-solid fa-table-cells text-purple-400"></i> Die mathematisch-abstrakte Vierfeldertafel
-                        </h3>
-                        <p class="text-xs text-slate-400 leading-relaxed mb-4">
-                            Eine Vierfeldertafel verknüpft zwei dichotome (zweifach gestufte) Ereignisse $A$ und $B$ und ihre Gegenereignisse $\overline{A}$ und $\overline{B}$.
-                        </p>
-
-                        <!-- Die reparierte Tabelle: Inline-Formeln statt Block-MathJax zur Verhinderung von Verschiebungen -->
-                        <div class="overflow-x-auto custom-scrollbar min-w-0">
-                            <table class="w-full text-center border-collapse">
-                                <thead>
-                                    <tr class="border-b border-slate-800">
-                                        <th class="p-3 text-slate-400 text-xs text-left font-bold uppercase tracking-wider">Ereignisse</th>
-                                        <th class="p-3 bg-purple-950/10 text-purple-300 text-xs font-bold uppercase tracking-wider">$B$</th>
-                                        <th class="p-3 bg-slate-900/10 text-slate-400 text-xs font-bold uppercase tracking-wider">$\overline{B}$</th>
-                                        <th class="p-3 text-slate-400 text-xs font-bold uppercase tracking-wider border-l border-slate-800">Gesamt</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="divide-y divide-slate-900 text-xs text-slate-300">
-                                    <tr class="hover:bg-slate-900/10">
-                                        <td class="p-4 text-left font-bold text-purple-300">$A$</td>
-                                        <td class="p-4 bg-purple-950/20 text-emerald-400 font-mono font-semibold">$P(A \cap B)$</td>
-                                        <td class="p-4 font-mono">$P(A \cap \overline{B})$</td>
-                                        <td class="p-4 border-l border-slate-800 bg-slate-900/30 font-mono font-medium">$P(A)$</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-900/10">
-                                        <td class="p-4 text-left font-bold text-slate-400">$\overline{A}$</td>
-                                        <td class="p-4 font-mono">$P(\overline{A} \cap B)$</td>
-                                        <td class="p-4 text-emerald-400 font-mono font-semibold">$P(\overline{A} \cap \overline{B})$</td>
-                                        <td class="p-4 border-l border-slate-800 bg-slate-900/30 font-mono font-medium">$P(\overline{A})$</td>
-                                    </tr>
-                                    <tr class="bg-slate-900/30 font-bold border-t border-slate-800">
-                                        <td class="p-4 text-left text-slate-400 font-bold uppercase tracking-wider">Gesamt</td>
-                                        <td class="p-4 text-purple-300 font-mono">$P(B)$</td>
-                                        <td class="p-4 font-mono">$P(\overline{B})$</td>
-                                        <td class="p-4 border-l border-slate-800 bg-indigo-950/40 text-indigo-300 font-mono">$\mathbf{1} \ (100\%)$</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                <!-- Tabelle -->
+                <div class="bento-card p-6 space-y-4">
+                    <h3 class="text-sm font-bold text-purple-600 uppercase tracking-wider flex items-center gap-1.5">
+                        <i class="fa-solid fa-table-cells"></i> Die abstrakte Vierfeldertafel
+                    </h3>
+                    <div class="overflow-x-auto custom-scrollbar min-w-0">
+                        <table class="w-full text-center border-collapse text-xs">
+                            <thead>
+                                <tr class="border-b border-slate-200">
+                                    <th class="p-2 text-left text-slate-400 font-bold uppercase tracking-wider">Ereignisse</th>
+                                    <th class="p-2 bg-purple-50 text-purple-600 font-bold uppercase tracking-wider">$B$</th>
+                                    <th class="p-2 bg-slate-50 text-slate-500 font-bold uppercase tracking-wider">$\overline{B}$</th>
+                                    <th class="p-2 text-slate-600 font-bold border-l border-slate-200 uppercase tracking-wider">Gesamt</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 text-slate-700">
+                                <tr>
+                                    <td class="p-3 text-left font-bold text-purple-600">$A$</td>
+                                    <td class="p-3 bg-purple-50/50 text-purple-700 font-mono font-bold">$P(A \cap B)$</td>
+                                    <td class="p-3 font-mono">$P(A \cap \overline{B})$</td>
+                                    <td class="p-3 border-l border-slate-200 bg-slate-50 font-mono font-semibold">$P(A)$</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-left font-bold text-slate-500">$\overline{A}$</td>
+                                    <td class="p-3 font-mono">$P(\overline{A} \cap B)$</td>
+                                    <td class="p-3 text-purple-700 font-mono font-bold">$P(\overline{A} \cap \overline{B})$</td>
+                                    <td class="p-3 border-l border-slate-200 bg-slate-50 font-mono font-semibold">$P(\overline{A})$</td>
+                                </tr>
+                                <tr class="bg-slate-50 font-bold border-t border-slate-200">
+                                    <td class="p-3 text-left text-slate-500 font-bold uppercase tracking-wider">Gesamt</td>
+                                    <td class="p-3 text-purple-600 font-mono">$P(B)$</td>
+                                    <td class="p-3 font-mono">$P(\overline{B})$</td>
+                                    <td class="p-3 border-l border-slate-200 bg-indigo-50 text-indigo-700 font-mono">1</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-
-                    <div class="text-xs bg-slate-950/80 p-4 rounded-2xl border border-slate-900 space-y-2 mt-4">
-                        <div class="font-semibold text-white flex items-center gap-1.5">
-                            <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span> Das allgemeine Additionstheorem
-                        </div>
-                        <div class="font-mono text-purple-300 text-sm py-1">
-                            $$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
-                        </div>
-                        <p class="text-[11px] text-slate-400 leading-relaxed">
-                            Für disjunkte (unvereinbare) Ereignisse gilt $P(A \cap B) = 0$, wodurch sich die Formel zu $P(A \cup B) = P(A) + P(B)$ vereinfacht.
-                        </p>
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 font-mono text-[11px] text-slate-500 text-center">
+                        Additionssatz: $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
                     </div>
                 </div>
 
-                <!-- Der Satz von Bayes mit verständlichen Definitionen -->
-                <div class="bento-card p-6 md:p-8 space-y-4 flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-lg font-bold text-purple-300 flex items-center gap-2">
-                            <i class="fa-solid fa-graduation-cap text-purple-400"></i> Das Bayes-Theorem im Detail
+                <!-- Satz von Bayes Details -->
+                <div class="bento-card p-6 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <h3 class="text-sm font-bold text-purple-600 uppercase tracking-wider flex items-center gap-1.5">
+                            <i class="fa-solid fa-graduation-cap"></i> Definition &amp; Theorem von Bayes
                         </h3>
-                        <p class="text-xs text-slate-400 mt-1">Die mathematische Formel zum Umkehren von bedingten Wahrscheinlichkeiten.</p>
-                        
-                        <!-- Die Formel im Fokus -->
-                        <div class="bg-slate-950/80 p-5 rounded-2xl border border-purple-500/10 my-6 text-center shadow-inner">
-                            <div class="text-2xl font-bold text-purple-300 tracking-wide">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 text-center">
+                            <div class="text-xl font-bold text-purple-700">
                                 $$P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$$
                             </div>
                         </div>
-
-                        <!-- Parametererklärung -->
-                        <div class="space-y-3 text-xs leading-relaxed">
-                            <div class="flex gap-3 items-start">
-                                <span class="text-purple-400 font-mono font-bold min-w-[70px] bg-purple-500/5 px-2 py-0.5 rounded border border-purple-500/10">$P(A|B)$</span>
-                                <span class="text-slate-300"><strong>A-posteriori-Wahrscheinlichkeit:</strong> Bedingte Wahrscheinlichkeit von $A$ unter der Bedingung $B$. (Der gesuchte, aktualisierte Wert).</span>
-                            </div>
-                            <div class="flex gap-3 items-start">
-                                <span class="text-purple-400 font-mono font-bold min-w-[70px] bg-purple-500/5 px-2 py-0.5 rounded border border-purple-500/10">$P(B|A)$</span>
-                                <span class="text-slate-300"><strong>Likelihood (Plausibilität):</strong> Bedingte Wahrscheinlichkeit von $B$ unter der Annahme, dass $A$ wahr ist.</span>
-                            </div>
-                            <div class="flex gap-3 items-start">
-                                <span class="text-purple-400 font-mono font-bold min-w-[70px] bg-purple-500/5 px-2 py-0.5 rounded border border-purple-500/10">$P(A)$</span>
-                                <span class="text-slate-300"><strong>A-priori-Wahrscheinlichkeit:</strong> Die anfängliche Basiswahrscheinlichkeit des Ereignisses $A$ vor neuen Daten.</span>
-                            </div>
-                            <div class="flex gap-3 items-start">
-                                <span class="text-purple-400 font-mono font-bold min-w-[70px] bg-purple-500/5 px-2 py-0.5 rounded border border-purple-500/10">$P(B)$</span>
-                                <span class="text-slate-300"><strong>Marginale (totale) Wahrscheinlichkeit:</strong> Die Gesamtwahrscheinlichkeit von $B$ über alle Pfade.</span>
-                            </div>
+                        <div class="grid grid-cols-2 gap-3 text-[11px] text-slate-600">
+                            <div><strong>$P(A|B)$:</strong> Bedingte Wahrscheinlichkeit von $A$ unter der Bedingung $B$.</div>
+                            <div><strong>$P(B|A)$:</strong> Plausibilität von $B$ unter Annahme $A$.</div>
+                            <div><strong>$P(A)$:</strong> A-priori-Wahrscheinlichkeit.</div>
+                            <div><strong>$P(B)$:</strong> Marginale Gesamtwahrscheinlichkeit von $B$.</div>
                         </div>
                     </div>
-
-                    <div class="bg-purple-950/20 p-4 rounded-2xl border border-purple-900/40 text-xs">
-                        <div class="font-bold text-white mb-1"><i class="fa-solid fa-link text-purple-400"></i> Definition der bedingten Wahrscheinlichkeit:</div>
-                        <span class="text-slate-300 font-mono block mt-1">$$P_B(A) = P(A|B) = \frac{P(A \cap B)}{P(B)}$$</span>
+                    <div class="bg-purple-50 p-3.5 rounded-xl border border-purple-100 text-xs mt-4">
+                        <span class="font-bold text-purple-950 block">Bedingte Wahrscheinlichkeit:</span>
+                        <span class="text-purple-700 font-mono block mt-1">$$P(A|B) = \frac{P(A \cap B)}{P(B)}$$</span>
                     </div>
                 </div>
 
             </div>
 
-            <!-- Totale Wahrscheinlichkeit & Bayes Übergang -->
-            <div class="bento-card p-6 md:p-8">
-                <h3 class="text-lg font-bold text-purple-300 mb-2 flex items-center gap-2">
-                    <i class="fa-solid fa-route text-purple-400"></i> Der allgemeine mathematische Herleitungsweg
+            <!-- Pfadregeln -->
+            <div class="bento-card p-6">
+                <h3 class="text-sm font-bold text-purple-600 uppercase tracking-wider mb-4 flex items-center gap-1.5">
+                    <i class="fa-solid fa-route"></i> Pfadregeln (Satz der totalen Wahrscheinlichkeit)
                 </h3>
-                <p class="text-xs text-slate-400 mb-6">
-                    In mehrstufigen Zufallsexperimenten wird der Nenner $P(B)$ über den Satz der totalen Wahrscheinlichkeit aus den einzelnen Verzweigungen des Baumdiagramms berechnet.
-                </p>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-slate-300">
-                    <!-- Schritt 1: Pfadregeln -->
-                    <div class="bg-slate-950/50 p-5 rounded-2xl border border-slate-900 flex flex-col justify-between h-full">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-slate-600">
+                    
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 flex flex-col justify-between">
                         <div>
-                            <span class="text-[10px] font-bold text-purple-400 uppercase tracking-widest block mb-2">1. Erste Pfadregel (Multiplikation)</span>
-                            <p class="leading-relaxed text-slate-300">
-                                Die Wahrscheinlichkeit eines Pfades (Schnittwahrscheinlichkeit zweier aufeinanderfolgender Ereignisse) ist gleich dem Produkt der Wahrscheinlichkeiten entlang dieses Pfades:
+                            <span class="font-bold text-purple-700 block mb-1">1. Pfadmultiplikationsregel</span>
+                            <p class="leading-relaxed text-slate-500">
+                                Die Pfadwahrscheinlichkeit für das gemeinsame Auftreten aufeinanderfolgender Ereignisse entspricht dem Produkt der Pfadwahrscheinlichkeiten:
                             </p>
                         </div>
-                        <div class="bg-slate-900/40 p-3.5 rounded-xl border border-slate-800/80 font-mono text-center mt-4">
+                        <div class="font-mono text-center mt-3 p-2 bg-white rounded border border-slate-200">
                             $$P(A \cap B) = P(A) \cdot P(B|A)$$
-                            $$P(\overline{A} \cap B) = P(\overline{A}) \cdot P(B|\overline{A})$$
                         </div>
                     </div>
 
-                    <!-- Schritt 2: Totale Wahrscheinlichkeit -->
-                    <div class="bg-slate-950/50 p-5 rounded-2xl border border-slate-900 flex flex-col justify-between h-full">
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 flex flex-col justify-between">
                         <div>
-                            <span class="text-[10px] font-bold text-purple-400 uppercase tracking-widest block mb-2">2. Zweite Pfadregel (Addition)</span>
-                            <p class="leading-relaxed text-slate-300">
-                                Führen mehrere Pfade zum gewünschten Ereignis $B$, addiert man deren Pfadwahrscheinlichkeiten. Das liefert die totale Wahrscheinlichkeit $P(B)$:
+                            <span class="font-bold text-purple-700 block mb-1">2. Pfadadditionsregel</span>
+                            <p class="leading-relaxed text-slate-500">
+                                Führen mehrere Pfade zum selben Endereignis $B$, addiert man die einzelnen Pfadwahrscheinlichkeiten, um die totale Wahrscheinlichkeit zu erhalten:
                             </p>
                         </div>
-                        <div class="bg-slate-900/40 p-3.5 rounded-xl border border-slate-800/80 font-mono text-center mt-4">
+                        <div class="font-mono text-center mt-3 p-2 bg-white rounded border border-slate-200">
                             $$P(B) = P(A \cap B) + P(\overline{A} \cap B)$$
-                            <span class="text-[10px] text-purple-400 block mt-1.5 mb-1">Ausgeschrieben:</span>
-                            $$P(B) = P(A) \cdot P(B|A) + P(\overline{A}) \cdot P(B|\overline{A})$$
                         </div>
                     </div>
 
-                    <!-- Schritt 3: Bayes -->
-                    <div class="bg-gradient-to-br from-purple-950/20 to-slate-950/80 border border-purple-500/20 p-5 rounded-2xl flex flex-col justify-between h-full">
+                    <div class="p-4 bg-gradient-to-br from-purple-50 to-white rounded-xl border border-purple-100 flex flex-col justify-between shadow-sm">
                         <div>
-                            <span class="text-[10px] font-bold text-purple-400 uppercase tracking-widest block mb-2">3. Synthese (Satz von Bayes)</span>
-                            <p class="leading-relaxed text-slate-300">
-                                Die bedingte Wahrscheinlichkeit $P(A|B)$ berechnet sich somit allgemein über das Verhältnis des spezifischen Pfades zur Summe aller Pfade, die zu $B$ führen:
+                            <span class="font-bold text-purple-700 block mb-1">3. Totale Bayes-Synthese</span>
+                            <p class="leading-relaxed text-slate-500">
+                                Ersetzt man im Nenner von Bayes $P(B)$ durch die Summe der Pfade, erhält man die vollständige Herleitung:
                             </p>
                         </div>
-                        <div class="my-4 text-center font-mono">
+                        <div class="font-mono text-center mt-3 p-2 bg-white rounded border border-purple-100 shadow-sm">
                             $$P(A|B) = \frac{P(A) \cdot P(B|A)}{P(A) \cdot P(B|A) + P(\overline{A}) \cdot P(B|\overline{A})}$$
                         </div>
-                        <p class="text-[10px] text-slate-400 text-center italic leading-relaxed bg-slate-900/40 p-2 rounded-xl border border-slate-850">
-                            Dieses mathematische Prinzip erlaubt es, von einer beobachteten Wirkung ($B$) rückwärts auf die Wahrscheinlichkeit einer bestimmten Ursache ($A$) zu schließen.
-                        </p>
                     </div>
+
                 </div>
             </div>
         </section>
 
         <!-- SEKTION 3: BINOMIALVERTEILUNG (BERNOULLI) -->
         <section id="bernoulli" class="space-y-6">
-            <div class="flex items-center gap-3">
-                <span class="bg-pink-500/10 text-pink-400 w-9 h-9 rounded-xl flex items-center justify-center font-bold border border-pink-500/20 shadow-sm shadow-pink-500/5">3</span>
-                <h2 class="text-2xl font-bold tracking-tight">Binomialverteilte Zufallsgrößen &amp; Bernoulli-Prozesse</h2>
+            <div class="flex items-center gap-3 border-b border-slate-200 pb-3">
+                <span class="bg-pink-50 text-pink-600 w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-pink-100">3</span>
+                <h2 class="text-xl font-bold tracking-tight text-slate-900">Binomialverteilung &amp; Bernoulli-Ketten</h2>
             </div>
 
-            <!-- Die 4 Checkpunkte eines Bernoulli-Experiments -->
-            <div class="bento-card p-6 md:p-8">
-                <h3 class="text-lg font-bold text-pink-300 mb-4 flex items-center gap-2">
-                    <i class="fa-solid fa-list-check text-pink-400"></i> Die 4 Kriterien für ein Bernoulli-Experiment (Bernoulli-Kette)
+            <!-- Bernoulli Kriterien -->
+            <div class="bento-card p-6">
+                <h3 class="text-sm font-bold text-pink-600 uppercase tracking-wider mb-4 flex items-center gap-1.5">
+                    <i class="fa-solid fa-list-check"></i> Die 4 Kriterien einer Bernoulli-Kette
                 </h3>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
-                    <!-- Kriterium 1 -->
-                    <div class="bg-slate-950/50 p-5 rounded-2xl border-l-4 border-l-pink-500 space-y-2 flex flex-col justify-between">
-                        <div class="font-bold text-white flex items-center gap-1.5 text-sm">
-                            <span class="bg-pink-500/20 text-pink-300 w-5 h-5 rounded-full flex items-center justify-center text-xs">1</span>
-                            Dichotomie
-                        </div>
-                        <p class="text-slate-300 leading-relaxed">In jedem einzelnen Versuch gibt es exakt zwei komplementäre Ausgänge: Treffer ($T$, Erfolg) oder Niete ($N$, Misserfolg).</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs text-slate-600">
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-1">
+                        <strong class="text-slate-900 flex items-center gap-1">
+                            <span class="w-2 h-2 rounded-full bg-pink-500"></span> 1. Dichotomie
+                        </strong>
+                        <p class="text-slate-500">In jedem Versuch gibt es exakt zwei Ausgänge: Treffer ($T$) oder Niete ($N$).</p>
                     </div>
-
-                    <!-- Kriterium 2 -->
-                    <div class="bg-slate-950/50 p-5 rounded-2xl border-l-4 border-l-pink-500 space-y-2 flex flex-col justify-between">
-                        <div class="font-bold text-white flex items-center gap-1.5 text-sm">
-                            <span class="bg-pink-500/20 text-pink-300 w-5 h-5 rounded-full flex items-center justify-center text-xs">2</span>
-                            Unabhängigkeit
-                        </div>
-                        <p class="text-slate-300 leading-relaxed">Die Ergebnisse aufeinanderfolgender Versuche beeinflussen sich gegenseitig nicht. Die Wahrscheinlichkeit bleibt stabil.</p>
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-1">
+                        <strong class="text-slate-900 flex items-center gap-1">
+                            <span class="w-2 h-2 rounded-full bg-pink-500"></span> 2. Unabhängigkeit
+                        </strong>
+                        <p class="text-slate-500">Die Ergebnisse aufeinanderfolgender Versuche beeinflussen sich nicht.</p>
                     </div>
-
-                    <!-- Kriterium 3 -->
-                    <div class="bg-slate-950/50 p-5 rounded-2xl border-l-4 border-l-pink-500 space-y-2 flex flex-col justify-between">
-                        <div class="font-bold text-white flex items-center gap-1.5 text-sm">
-                            <span class="bg-pink-500/20 text-pink-300 w-5 h-5 rounded-full flex items-center justify-center text-xs">3</span>
-                            Konstantes $p$
-                        </div>
-                        <p class="text-slate-300 leading-relaxed">Die Trefferwahrscheinlichkeit $p \in [0, 1]$ ist über die gesamte Versuchsdauer hinweg absolut konstant.</p>
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-1">
+                        <strong class="text-slate-900 flex items-center gap-1">
+                            <span class="w-2 h-2 rounded-full bg-pink-500"></span> 3. Konstantes $p$
+                        </strong>
+                        <p class="text-slate-500">Die Trefferwahrscheinlichkeit $p \in [0, 1]$ bleibt in jedem Versuch konstant.</p>
                     </div>
-
-                    <!-- Kriterium 4 -->
-                    <div class="bg-slate-950/50 p-5 rounded-2xl border-l-4 border-l-pink-500 space-y-2 flex flex-col justify-between">
-                        <div class="font-bold text-white flex items-center gap-1.5 text-sm">
-                            <span class="bg-pink-500/20 text-pink-300 w-5 h-5 rounded-full flex items-center justify-center text-xs">4</span>
-                            Feste Kettenlänge
-                        </div>
-                        <p class="text-slate-300 leading-relaxed">Die Anzahl der durchzuführenden Einzelversuche (Kettenlänge $n \in \mathbb{N}$) steht vorab fest.</p>
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-1">
+                        <strong class="text-slate-900 flex items-center gap-1">
+                            <span class="w-2 h-2 rounded-full bg-pink-500"></span> 4. Kettenlänge $n$
+                        </strong>
+                        <p class="text-slate-500">Die Anzahl der durchzuführenden Versuche (Kettenlänge $n$) steht vorab fest.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Formelstruktur der Binomialverteilung -->
+            <!-- Formelstruktur & Verteilung -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 
-                <!-- Bernoulli-Formel visualisiert -->
-                <div class="bento-card p-6 md:p-8 lg:col-span-2 space-y-4">
-                    <h3 class="text-lg font-bold text-pink-300 flex items-center gap-2">
-                        <i class="fa-solid fa-calculator text-pink-400"></i> Die Bernoulli-Formel (Wahrscheinlichkeitsfunktion)
+                <!-- Bernoulli Formel -->
+                <div class="bento-card p-6 lg:col-span-2 space-y-4">
+                    <h3 class="text-sm font-bold text-pink-600 uppercase tracking-wider flex items-center gap-1.5">
+                        <i class="fa-solid fa-calculator"></i> Die Bernoulli-Formel
                     </h3>
-                    
-                    <div class="bg-slate-950/80 p-6 rounded-2xl border border-slate-900 text-center shadow-inner">
-                        <div class="text-2xl md:text-3xl font-bold tracking-wider text-pink-300">
-                            $$P(X = k) = B(n; p; k) = \binom{n}{k} \cdot p^k \cdot (1-p)^{n-k}$$
+                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 text-center">
+                        <div class="text-xl md:text-2xl font-bold text-slate-950">
+                            $$P(X = k) = \binom{n}{k} \cdot p^k \cdot (1-p)^{n-k}$$
                         </div>
                     </div>
-
-                    <!-- Bausteine-Erklärung -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs pt-2">
-                        <div class="bg-slate-900/30 p-4 rounded-xl border border-slate-800 space-y-2">
-                            <span class="text-pink-400 font-bold text-sm block">1. Binomialkoeffizient</span>
-                            <div class="font-mono text-pink-300 font-semibold text-center my-1">$\binom{n}{k}$</div>
-                            <p class="text-slate-300 leading-relaxed">Bestimmt die Anzahl der Pfade im Baumdiagramm, die zu genau $k$ Treffern führen. Rechnerisch: $\frac{n!}{k! \cdot (n-k)!}$.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-[11px] text-slate-500">
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                            <span class="font-bold text-pink-600 block">Binomialkoeffizient</span>
+                            $\binom{n}{k}$ legt die Anzahl der erfolgreichen Pfade im Baumdiagramm fest.
                         </div>
-                        <div class="bg-slate-900/30 p-4 rounded-xl border border-slate-800 space-y-2">
-                            <span class="text-pink-400 font-bold text-sm block">2. Trefferwahrsch.</span>
-                            <div class="font-mono text-pink-300 font-semibold text-center my-1">$p^k$</div>
-                            <p class="text-slate-300 leading-relaxed">Multiplikative Wahrscheinlichkeit für das Eintreffen der $k$ unabhängigen Treffer.</p>
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                            <span class="font-bold text-pink-600 block">Trefferwahrscheinlichkeit</span>
+                            $p^k$ repräsentiert die Wahrscheinlichkeit der $k$ eingetretenen Erfolge.
                         </div>
-                        <div class="bg-slate-900/30 p-4 rounded-xl border border-slate-800 space-y-2">
-                            <span class="text-pink-400 font-bold text-sm block">3. Gegenwahrsch.</span>
-                            <div class="font-mono text-pink-300 font-semibold text-center my-1">$(1-p)^{n-k}$</div>
-                            <p class="text-slate-300 leading-relaxed">Multiplikative Wahrscheinlichkeit für das Eintreffen der restlichen $n-k$ Misserfolge (mit $q = 1-p$).</p>
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                            <span class="font-bold text-pink-600 block">Gegenwahrscheinlichkeit</span>
+                            $(1-p)^{n-k}$ beschreibt die Wahrscheinlichkeit für die restlichen Misserfolge.
                         </div>
                     </div>
                 </div>
 
-                <!-- Rezept zum Einsetzen -->
-                <div class="bento-card p-6 md:p-8 flex flex-col justify-between">
+                <!-- Höchstens vs Mindestens -->
+                <div class="bento-card p-6 flex flex-col justify-between">
                     <div>
-                        <h3 class="text-lg font-bold text-pink-300 flex items-center gap-2 mb-3">
-                            <i class="fa-solid fa-list-ol text-pink-400"></i> Systematisches Vorgehen
+                        <h3 class="text-sm font-bold text-pink-600 uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                            <i class="fa-solid fa-arrow-up-9-1"></i> Summen- &amp; Intervallberechnungen
                         </h3>
-                        <ol class="space-y-4 text-xs text-slate-300">
-                            <li class="flex gap-3">
-                                <span class="bg-slate-900 text-pink-400 font-bold w-6 h-6 rounded-lg flex items-center justify-center shrink-0 border border-slate-800">1</span>
-                                <span><strong>Kettenparameter bestimmen:</strong><br>Definiere $n$ (Versuchsanzahl), $p$ (Trefferwahrscheinlichkeit) und $X$ als Anzahl der Treffer.</span>
-                            </li>
-                            <li class="flex gap-3">
-                                <span class="bg-slate-900 text-pink-400 font-bold w-6 h-6 rounded-lg flex items-center justify-center shrink-0 border border-slate-800">2</span>
-                                <span><strong>Intervallbereich klären:</strong><br>Übersetze die Fragestellung ("mindestens", "höchstens") in die mathematische Ungleichung.</span>
-                            </li>
-                            <li class="flex gap-3">
-                                <span class="bg-slate-900 text-pink-400 font-bold w-6 h-6 rounded-lg flex items-center justify-center shrink-0 border border-slate-800">3</span>
-                                <span><strong>Formel anwenden:</strong><br>Rechne entweder über die Einzelwahrscheinlichkeiten oder nutze das Gegenereignis.</span>
-                            </li>
-                        </ol>
+                        <div class="space-y-3 text-xs text-slate-600">
+                            <div class="p-3 bg-amber-50 rounded-xl border border-amber-100">
+                                <strong class="text-amber-950 block">Höchstens $k$ Treffer:</strong>
+                                <div class="font-mono text-center my-1">$$P(X \le k) = \sum_{i=0}^{k} P(X = i)$$</div>
+                            </div>
+                            <div class="p-3 bg-cyan-50 rounded-xl border border-cyan-100">
+                                <strong class="text-cyan-950 block">Mindestens $k$ Treffer:</strong>
+                                <div class="font-mono text-center my-1">$$P(X \ge k) = 1 - P(X \le k - 1)$$</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
             </div>
 
-            <!-- Höchstens vs. Mindestens Fälle (Abstrakt) -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Fall 1: Höchstens -->
-                <div class="bento-card p-6 border-l-4 border-l-amber-500">
-                    <h4 class="text-base font-bold text-amber-400 flex items-center gap-1.5">
-                        <i class="fa-solid fa-angle-left"></i> Kumulierte Binomialverteilung: "Höchstens $k$ Treffer" ($P(X \le k)$)
-                    </h4>
-                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-                        Die Wahrscheinlichkeit, dass die Zufallsgröße $X$ maximal den Wert $k$ annimmt, berechnet sich durch die Aufsummierung aller Einzelwahrscheinlichkeiten von $0$ bis $k$.
-                    </p>
-                    <div class="bg-slate-950/85 p-4 rounded-xl border border-slate-900 font-mono text-xs text-amber-300 my-4 text-center">
-                        $$P(X \le k) = \sum_{i=0}^{k} P(X = i) = P(X = 0) + P(X = 1) + \dots + P(X = k)$$
-                    </div>
-                </div>
-
-                <!-- Fall 2: Mindestens -->
-                <div class="bento-card p-6 border-l-4 border-l-cyan-500">
-                    <h4 class="text-base font-bold text-cyan-400 flex items-center gap-1.5">
-                        <i class="fa-solid fa-angle-right"></i> Gegenereignis-Methode: "Mindestens $k$ Treffer" ($P(X \ge k)$)
-                    </h4>
-                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-                        Die Wahrscheinlichkeit für mindestens $k$ Treffer wird über das Gegenereignis (Komplement) berechnet, um den Rechenaufwand signifikant zu reduzieren.
-                    </p>
-                    <div class="bg-slate-950/85 p-4 rounded-xl border border-slate-900 font-mono text-xs text-cyan-300 my-4 text-center">
-                        $$P(X \ge k) = 1 - P(X \le k - 1) = 1 - \sum_{i=0}^{k-1} P(X = i)$$
-                    </div>
-                </div>
-            </div>
-
-            <!-- Allgemeine abstrakte Verteilungstabelle -->
-            <div class="bento-card p-6 md:p-8">
-                <h3 class="text-lg font-bold text-pink-300 mb-2 flex items-center gap-2">
-                    <i class="fa-solid fa-table text-pink-400"></i> Allgemeine Wahrscheinlichkeitsverteilung einer Zufallsgröße $X$
+            <!-- Abstrakte Verteilungstabelle -->
+            <div class="bento-card p-6">
+                <h3 class="text-sm font-bold text-pink-600 uppercase tracking-wider mb-4 flex items-center gap-1.5">
+                    <i class="fa-solid fa-table"></i> Wahrscheinlichkeitsverteilung einer Zufallsgröße $X$
                 </h3>
-                <p class="text-xs text-slate-400 mb-6">
-                    Die vollständige Wahrscheinlichkeitsverteilung listet alle möglichen Realisierungen $k_i$ einer diskreten Zufallsgröße $X$ und die dazugehörigen Wahrscheinlichkeiten auf. Es gilt stets $\sum P(X=k_i) = 1$.
-                </p>
-
-                <div class="overflow-x-auto custom-scrollbar min-w-0">
-                    <table class="w-full text-center border-collapse">
+                <div class="overflow-x-auto custom-scrollbar min-w-0 border border-slate-200 rounded-xl shadow-sm bg-white">
+                    <table class="w-full text-center border-collapse text-xs">
                         <thead>
-                            <tr class="border-b border-slate-800 text-xs text-slate-400 font-bold uppercase tracking-wider">
+                            <tr class="bg-slate-50 border-b border-slate-200 text-slate-500 font-bold uppercase tracking-wider">
                                 <th class="p-3 text-left">Wert der Zufallsgröße ($k$)</th>
                                 <th class="p-3">Mathematischer Berechnungsansatz</th>
-                                <th class="p-3 text-right">Interpretation</th>
+                                <th class="p-3 text-right">Stochastische Bedeutung</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-slate-900 text-xs text-slate-300 font-mono">
-                            <tr class="hover:bg-slate-900/10">
-                                <td class="p-4 text-left font-semibold text-slate-200">k = 0</td>
+                        <tbody class="divide-y divide-slate-100 text-slate-700 font-mono">
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 text-left font-bold">k = 0</td>
                                 <td class="p-4">$$\binom{n}{0} \cdot p^0 \cdot (1-p)^n = (1-p)^n$$</td>
-                                <td class="p-4 text-right text-slate-400">Wahrscheinlichkeit für absolut keinen Treffer (reine Misserfolgsfolge).</td>
+                                <td class="p-4 text-right text-slate-500 font-sans">Ausschließliche Serie von Misserfolgen (Nieten).</td>
                             </tr>
-                            <tr class="hover:bg-slate-900/10">
-                                <td class="p-4 text-left font-semibold text-slate-200">k = 1</td>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 text-left font-bold">k = 1</td>
                                 <td class="p-4">$$\binom{n}{1} \cdot p^1 \cdot (1-p)^{n-1} = n \cdot p \cdot (1-p)^{n-1}$$</td>
-                                <td class="p-4 text-right text-slate-400">Wahrscheinlichkeit für genau einen einzigen Treffer in der gesamten Kette.</td>
+                                <td class="p-4 text-right text-slate-500 font-sans">Genau ein Treffer an einer beliebigen Stelle der Kette.</td>
                             </tr>
-                            <tr class="hover:bg-slate-900/10">
-                                <td class="p-4 text-left font-semibold text-slate-200">k = 2</td>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 text-left font-bold">k = 2</td>
                                 <td class="p-4">$$\binom{n}{2} \cdot p^2 \cdot (1-p)^{n-2}$$</td>
-                                <td class="p-4 text-right text-slate-400">Wahrscheinlichkeit für exakt zwei Treffer an beliebiger Position.</td>
+                                <td class="p-4 text-right text-slate-500 font-sans">Exakt zwei Erfolge verteilt über die Kette der Länge $n$.</td>
                             </tr>
-                            <tr class="hover:bg-slate-900/10">
-                                <td class="p-4 text-left font-semibold text-slate-200">\dots</td>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 text-left font-bold">\dots</td>
                                 <td class="p-4">$$\dots$$</td>
-                                <td class="p-4 text-right text-slate-400">\dots</td>
+                                <td class="p-4 text-right text-slate-500 font-sans">\dots</td>
                             </tr>
-                            <tr class="hover:bg-slate-900/10">
-                                <td class="p-4 text-left font-semibold text-slate-200">k = n</td>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 text-left font-bold">k = n</td>
                                 <td class="p-4">$$\binom{n}{n} \cdot p^n \cdot (1-p)^0 = p^n$$</td>
-                                <td class="p-4 text-right text-slate-400">Wahrscheinlichkeit für das Eintreffen des Treffers in jedem einzelnen Versuch.</td>
+                                <td class="p-4 text-right text-slate-500 font-sans">Ausschließliche Serie von Erfolgen (lückenlose Treffer).</td>
                             </tr>
                         </tbody>
                     </table>
@@ -646,7 +473,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="mt-16 border-t border-slate-900 py-8 text-center text-xs text-slate-500">
+    <footer class="mt-20 border-t border-slate-200 py-8 text-center text-xs text-slate-400">
         <p>© 2026 Stochastik &amp; Kombinatorik Lernportal. Entwickelt für die 11. Klasse (Lernbereich 4).</p>
         <p class="mt-1">Reine theoretische Strukturübersicht für die Vorbereitung auf Leistungstests und Klausuren.</p>
     </footer>
