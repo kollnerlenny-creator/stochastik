@@ -66,9 +66,10 @@
                 </div>
             </div>
             <div class="flex gap-2 text-xs font-semibold text-slate-600">
-                <a href="#kombinatorik" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg transition">Kombinatorik</a>
-                <a href="#bayes" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg transition">Bayes</a>
-                <a href="#bernoulli" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg transition">Bernoulli</a>
+                <a href="#grundlagen" class="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg transition">Grundlagen</a>
+                <a href="#kombinatorik" class="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg transition">Kombinatorik</a>
+                <a href="#bayes" class="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg transition">Bayes</a>
+                <a href="#bernoulli" class="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg transition">Bernoulli</a>
             </div>
         </div>
     </header>
@@ -77,12 +78,103 @@
     <main class="max-w-7xl mx-auto px-6 mt-8 space-y-12">
 
         <!-- EINLEITUNG (Banner) -->
-        <div class="bento-card p-6 md:p-8 bg-gradient-to-r from-indigo-550 via-slate-50 to-white border-l-4 border-l-indigo-600">
+        <div class="bento-card p-6 md:p-8 bg-gradient-to-r from-indigo-50 via-slate-50 to-white border-l-4 border-l-indigo-600">
             <h2 class="text-xl font-bold text-slate-900 tracking-tight">Kompakter Theorie- &amp; Formel-Lernzettel</h2>
             <p class="text-xs text-slate-600 mt-2 leading-relaxed max-w-4xl">
                 Dieser Lernzettel fasst alle Definitionen, Sätze und Gesetzmäßigkeiten deiner aktuellen Unterrichtseinheit in rein mathematisch-abstrakter Form zusammen. Er ist für schnelle Wiederholungen vor Klausuren optimiert und schützt komplexe Formeln durch ein absolut überlaufsicheres Spaltendesign.
             </p>
         </div>
+
+        <!-- SEKTION 0: ALLGEMEINE GRUNDLAGEN -->
+        <section id="grundlagen" class="space-y-6">
+            <div class="flex items-center gap-3 border-b border-slate-200 pb-3">
+                <span class="bg-emerald-50 text-emerald-600 w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm border border-emerald-100">0</span>
+                <h2 class="text-xl font-bold tracking-tight text-slate-900">Allgemeine Grundlagen der Wahrscheinlichkeitsrechnung</h2>
+            </div>
+
+            <!-- Wann benutzen? (Grundlagen) -->
+            <div class="p-4 bg-emerald-50/50 border-l-4 border-l-emerald-500 rounded-r-xl text-xs text-slate-700 space-y-1">
+                <div class="font-bold text-emerald-950 flex items-center gap-1.5">
+                    <i class="fa-solid fa-circle-info"></i> Wann anwenden?
+                </div>
+                <p class="leading-relaxed">
+                    Benutze diese Grundlagen, um einfache, einstufige Zufallsexperimente mathematisch zu beschreiben (z. B. <em>"Mit welcher Wahrscheinlichkeit wird eine bestimmte Karte gezogen oder eine Augenzahl gewürfelt?"</em>). Sie bilden das absolute Fundament für alle fortgeschrittenen Themen wie Baumdiagramme, bedingte Wahrscheinlichkeiten und Bernoulli-Ketten.
+                </p>
+            </div>
+
+            <!-- Grundlagen-Bento-Kachel -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Definitionen -->
+                <div class="bento-card p-6 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <h3 class="text-sm font-bold text-emerald-600 uppercase tracking-wider flex items-center gap-1.5">
+                            <i class="fa-solid fa-book"></i> Grundbegriffe der Stochastik
+                        </h3>
+                        <div class="space-y-3 text-xs text-slate-600 leading-relaxed">
+                            <p>
+                                <strong>Zufallsexperiment:</strong> Ein beliebig oft wiederholbarer Versuch, dessen Ausgang nicht exakt vorhergesagt werden kann (z. B. Münzwurf).
+                            </p>
+                            <p>
+                                <strong>Ergebnismenge ($\Omega$):</strong> Die Menge aller Ausgänge, die bei einem Zufallsexperiment überhaupt eintreten können.
+                            </p>
+                            <p>
+                                <strong>Ereignis ($A$):</strong> Eine Zusammenfassung von bestimmten Wunschergebnissen aus der Ergebnismenge. Es gilt: $A \subseteq \Omega$.
+                            </p>
+                            <p>
+                                <strong>Sicheres Ereignis:</strong> Ein Ereignis, das garantiert eintritt: $P(\Omega) = 1$ ($100\%$).
+                            </p>
+                            <p>
+                                <strong>Unmögliches Ereignis:</strong> Ein Ereignis, das niemals eintreten kann: $P(\emptyset) = 0$ ($0\%$).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formeln & Gegenereignis -->
+                <div class="bento-card p-6 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <h3 class="text-sm font-bold text-emerald-600 uppercase tracking-wider flex items-center gap-1.5">
+                            <i class="fa-solid fa-square-root-variable"></i> Mathematische Gesetzmäßigkeiten
+                        </h3>
+                        
+                        <!-- Laplace Formel -->
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                            <span class="text-[9px] font-bold text-slate-500 uppercase block mb-1">Laplace-Wahrscheinlichkeit (gleiche Chancen)</span>
+                            <div class="font-mono text-sm font-bold text-slate-900 mt-1">
+                                $$P(A) = \frac{|A|}{|\Omega|} = \frac{\text{Anzahl der günstigen Ergebnisse}}{\text{Anzahl der möglichen Ergebnisse}}$$
+                            </div>
+                        </div>
+
+                        <!-- Gegenereignis Formel -->
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                            <span class="text-[9px] font-bold text-slate-500 uppercase block mb-1">Wahrscheinlichkeit des Gegenereignisses ($\overline{A}$)</span>
+                            <div class="font-mono text-sm font-bold text-slate-900 mt-1">
+                                $$P(\overline{A}) = 1 - P(A)$$
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Aufklappbares Beispiel -->
+                    <details class="group bg-slate-50 border border-slate-200 rounded-xl overflow-hidden mt-3">
+                        <summary class="flex justify-between items-center p-3 text-xs font-bold text-emerald-600 cursor-pointer select-none hover:bg-slate-100">
+                            <span>Beispiel einblenden (Klassischer Spielwürfel)</span>
+                            <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-open:rotate-180"></i>
+                        </summary>
+                        <div class="p-4 border-t border-slate-200 text-xs text-slate-600 bg-white space-y-2 leading-relaxed">
+                            <p><strong>Szenario:</strong> Ein normaler sechsseitiger Spielwürfel wird einmal geworfen. Ereignis $A$: Es wird eine gerade Zahl gewürfelt.</p>
+                            <p><strong>Mathematische Darstellung:</strong></p>
+                            <div class="bg-slate-50 p-2.5 rounded font-mono text-[11px] space-y-1">
+                                <div>• Ergebnismenge: $\Omega = \{1, 2, 3, 4, 5, 6\} \rightarrow |\Omega| = 6$</div>
+                                <div>• Günstige Ergebnisse: $A = \{2, 4, 6\} \rightarrow |A| = 3$</div>
+                                <div>• Wahrscheinlichkeit: $P(A) = \frac{3}{6} = 0,5 = \mathbf{50\%}$</div>
+                                <div>• Gegenereignis $\overline{A}$ (ungerade Zahl): $\overline{A} = \{1, 3, 5\}$</div>
+                                <div>• Gegenwahrscheinlichkeit: $P(\overline{A}) = 1 - 0,5 = 0,5 = \mathbf{50\%}$</div>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
 
         <!-- SEKTION 1: KOMBINATORIK -->
         <section id="kombinatorik" class="space-y-6">
@@ -671,7 +763,7 @@
 
             </div>
 
-            <!-- NEU: Kennzahlen der Binomialverteilung (Erwartungswert & Standardabweichung) -->
+            <!-- Kennzahlen der Binomialverteilung (Erwartungswert & Standardabweichung) -->
             <div class="bento-card p-6">
                 <h3 class="text-sm font-bold text-pink-600 uppercase tracking-wider mb-4 flex items-center gap-1.5">
                     <i class="fa-solid fa-chart-line"></i> Kennzahlen binomialverteilter Zufallsgrößen
