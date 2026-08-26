@@ -61,16 +61,16 @@
                     <i class="fa-solid fa-file-invoice text-xl"></i>
                 </div>
                 <div>
-                    <h1 class="text-lg font-bold tracking-tight text-slate-950">Stochastik &amp; Statistik – Lernzettel</h1>
+                    <h1 class="text-lg font-bold tracking-tight text-slate-950">Stochastik II – Lernzettel</h1>
                     <p class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Klasse 11 • Lernbereich 4</p>
                 </div>
             </div>
-            <div class="flex flex-wrap gap-2 text-xs font-semibold text-slate-600">
+            <div class="flex gap-2 text-xs font-semibold text-slate-600 flex-wrap justify-center">
                 <a href="#grundlagen" class="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg transition">Grundlagen</a>
                 <a href="#kombinatorik" class="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg transition">Kombinatorik</a>
                 <a href="#bayes" class="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg transition">Bayes ($P_B(A)$)</a>
                 <a href="#bernoulli" class="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg transition">Bernoulli</a>
-                <a href="#statistik" class="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg transition">LB 4 Statistik</a>
+                <a href="#statistik" class="px-2.5 py-1.5 bg-indigo-50 text-indigo-600 border border-indigo-100 hover:bg-indigo-100 rounded-lg transition">Statistik &amp; Tests</a>
             </div>
         </div>
     </header>
@@ -866,7 +866,7 @@
                 </div>
                 <p class="leading-relaxed">
                     Benutze dieses Thema, wenn aus einer <strong>Stichprobe</strong> (Umfang $n$) Rückschlüsse auf eine unbekannte <strong>Grundgesamtheit</strong> gezogen werden sollen. 
-                    Außerdem beinhaltet dieser Bereich die <strong>allgemeinen Summenformeln</strong> für den Erwartungswert $E(X)$ und die Varianz $V(X)$ beliebiger diskreter Zufallsgrößen.
+                    Außerdem beinhaltet dieser Bereich die <strong>allgemeinen Summenformeln</strong> für den Erwartungswert $E(X)$ und die Varianz $V(X)$ beliebiger diskreter Zufallsgrößen sowie Hypothesentests.
                 </p>
             </div>
 
@@ -918,70 +918,127 @@
             </div>
 
             <!-- Erwartungswert E(X) und Varianz V(X) diskreter Zufallsgrößen (Tafelbild) -->
-            <div class="bento-card p-6 border-l-4 border-l-blue-600">
-                <h3 class="text-sm font-bold text-blue-600 uppercase tracking-wider mb-4 flex items-center gap-1.5">
-                    <i class="fa-solid fa-square-root-variable"></i> Erwartungswert $E(X)$ &amp; Varianz $V(X)$ beliebiger diskreter Zufallsgrößen
+            <div class="bento-card p-6 border-l-4 border-l-blue-600 space-y-4">
+                <h3 class="text-sm font-bold text-blue-600 uppercase tracking-wider flex items-center gap-1.5">
+                    <i class="fa-solid fa-square-root-variable"></i> Erwartungswert $E(X)$, Varianz $V(X)$ &amp; Standardabweichung $\sigma(X)$
                 </h3>
                 
-                <p class="text-xs text-slate-600 mb-4 leading-relaxed">
-                    Den Erwartungswert $E(X)$ eines Merkmals $X$ schätzt man mit dem bekannten arithmetischen Mittel. Bei einer diskreten Zufallsgröße $X$ mit den möglichen Werten $x_1, x_2, \dots, x_n$ gilt:
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    Den Erwartungswert $E(X)$ eines Merkmals $X$ schätzt man mit dem bekannten arithmetischen Mittel. Bei einer diskreten Zufallsgröße $X$ mit den möglichen Werten $x_1, x_2, \dots, x_n$ gelten folgende allgemeine Summenformeln:
                 </p>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 text-xs">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 text-xs">
                     <!-- Allgemeiner Erwartungswert -->
-                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
-                        <span class="font-bold text-slate-900 block text-xs">Allgemeiner Erwartungswert $E(X)$:</span>
-                        <div class="p-3 bg-white rounded-lg border border-slate-200 text-center font-mono font-bold text-blue-700 text-sm overflow-x-auto custom-scrollbar">
-                            $$E(X) = \sum_{i=1}^{n} x_i \cdot P(X = x_i)$$
-                        </div>
-                        <div class="p-2.5 bg-white/80 rounded border border-slate-100 font-mono text-[10px] text-slate-600 space-y-1 overflow-x-auto custom-scrollbar">
-                            $$E(X) = x_1 \cdot P(X = x_1) + x_2 \cdot P(X = x_2) + \dots + x_n \cdot P(X = x_n)$$
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3 flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <span class="font-bold text-slate-900 block text-xs">Erwartungswert $E(X)$:</span>
+                            <div class="p-3 bg-white rounded-lg border border-slate-200 text-center font-mono font-bold text-blue-700 text-sm overflow-x-auto custom-scrollbar">
+                                $$E(X) = \sum_{i=1}^{n} x_i \cdot P(X = x_i)$$
+                            </div>
+                            <div class="p-2.5 bg-white/80 rounded border border-slate-100 font-mono text-[10px] text-slate-600 overflow-x-auto custom-scrollbar">
+                                $$E(X) = x_1 \cdot P(X = x_1) + \dots + x_n \cdot P(X = x_n)$$
+                            </div>
                         </div>
                     </div>
 
                     <!-- Allgemeine Varianz -->
-                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
-                        <span class="font-bold text-slate-900 block text-xs">Allgemeine Varianz $V(X)$:</span>
-                        <div class="p-3 bg-white rounded-lg border border-slate-200 text-center font-mono font-bold text-blue-700 text-sm overflow-x-auto custom-scrollbar">
-                            $$V(X) = \sum_{i=1}^{n} (x_i - E(X))^2 \cdot P(X = x_i)$$
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3 flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <span class="font-bold text-slate-900 block text-xs">Varianz $V(X)$:</span>
+                            <div class="p-3 bg-white rounded-lg border border-slate-200 text-center font-mono font-bold text-blue-700 text-sm overflow-x-auto custom-scrollbar">
+                                $$V(X) = \sum_{i=1}^{n} (x_i - E(X))^2 \cdot P(x_i)$$
+                            </div>
+                            <div class="p-2.5 bg-white/80 rounded border border-slate-100 font-mono text-[10px] text-slate-600 overflow-x-auto custom-scrollbar">
+                                $$V(X) = (x_1 - E(X))^2 \cdot P(x_1) + \dots + (x_n - E(X))^2 \cdot P(x_n)$$
+                            </div>
                         </div>
-                        <div class="p-2.5 bg-white/80 rounded border border-slate-100 font-mono text-[10px] text-slate-600 space-y-1 overflow-x-auto custom-scrollbar">
-                            $$V(X) = (x_1 - E(X))^2 \cdot P(x_1) + (x_2 - E(X))^2 \cdot P(x_2) + \dots + (x_n - E(X))^2 \cdot P(x_n)$$
+                    </div>
+
+                    <!-- Standardabweichung -->
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3 flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <span class="font-bold text-slate-900 block text-xs">Standardabweichung $\sigma(X)$:</span>
+                            <div class="p-3 bg-white rounded-lg border border-slate-200 text-center font-mono font-bold text-blue-700 text-sm overflow-x-auto custom-scrollbar">
+                                $$\sigma(X) = \sqrt{V(X)}$$
+                            </div>
+                            <p class="text-[10px] text-slate-500 leading-relaxed">
+                                Gibt die Streuung in der ursprünglichen Maßeinheit der Zufallsgröße an.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Schätzverfahren & Testverfahren -->
-            <div class="bento-card p-6">
-                <h3 class="text-sm font-bold text-blue-600 uppercase tracking-wider mb-4 flex items-center gap-1.5">
-                    <i class="fa-solid fa-magnifying-glass-chart"></i> Methoden der beurteilenden Statistik
+            <!-- Hypothesentests & Schätzverfahren -->
+            <div class="bento-card p-6 space-y-4">
+                <h3 class="text-sm font-bold text-blue-600 uppercase tracking-wider flex items-center gap-1.5">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i> Zweiseitiger Hypothesentest &amp; Schätzverfahren
                 </h3>
+                
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-slate-600">
                     
                     <!-- Schätzverfahren -->
-                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2">
-                        <span class="font-bold text-slate-900 block text-xs text-blue-700">1. Schätzverfahren (Unbekannte Parameter schätzen)</span>
-                        <div class="space-y-2 leading-relaxed text-slate-600">
-                            <p>
-                                <strong>• Punktschätzung:</strong> Das Stichprobenmittel $\bar{x}$ dient als bester Schätzwert für den Erwartungswert $\mu = E(X)$ der Grundgesamtheit.
-                            </p>
-                            <p>
-                                <strong>• Intervallschätzung:</strong> Bestimmung eines Intervalls (Konfidenzintervall), in dem der wahre Parameter mit hoher Wahrscheinlichkeit liegt (<em>Gesetz der großen Zahlen</em>).
-                            </p>
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2 flex flex-col justify-between">
+                        <div>
+                            <span class="font-bold text-slate-900 block text-xs text-blue-700 mb-2">1. Schätzverfahren</span>
+                            <div class="space-y-2 leading-relaxed text-slate-600">
+                                <p>
+                                    <strong>• Punktschätzung:</strong> Das Stichprobenmittel $\bar{x}$ dient als Schätzwert für den Erwartungswert $\mu = E(X)$ der Grundgesamtheit.
+                                </p>
+                                <p>
+                                    <strong>• Intervallschätzung:</strong> Bestimmung eines Konfidenzintervalls, in dem der wahre Parameter mit hoher Wahrscheinlich liegt (<em>Gesetz der großen Zahlen</em>).
+                                </p>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Testverfahren -->
-                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2">
-                        <span class="font-bold text-slate-900 block text-xs text-blue-700">2. Testverfahren (Hypothesentests)</span>
-                        <div class="space-y-2 leading-relaxed text-slate-600">
-                            <p>
-                                Systematic Methoden, um statistische Vermutungen/Hypothesen ($H_0$ vs. $H_1$) über Parameter der Grundgesamtheit anhand von Stichprobendaten zu überprüfen.
-                            </p>
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-2 flex flex-col justify-between">
+                        <div>
+                            <span class="font-bold text-slate-900 block text-xs text-blue-700 mb-2">2. Zweiseitiger Hypothesentest</span>
+                            <div class="space-y-2 leading-relaxed text-slate-600">
+                                <p><strong>Nullhypothese:</strong> $H_0: p = p_1$</p>
+                                <p><strong>Alternativhypothese:</strong> $H_1: p \neq p_1$</p>
+                                <p><strong>Signifikanzniveau ($\alpha$):</strong> Wahrscheinlichkeit, $H_0$ fälschlicherweise abzulehnen.</p>
+                                <div class="bg-white p-2 rounded border border-slate-200 font-mono text-[11px] text-center font-semibold mt-1">
+                                    $$P(X \le k_1 - 1) \approx \frac{\alpha}{2} \quad \text{und} \quad P(X \ge k_2 + 1) \approx \frac{\alpha}{2}$$
+                                </div>
+                            </div>
                         </div>
                     </div>
 
+                </div>
+
+                <!-- Praxisbeispiele im Aufklappmenü -->
+                <div class="space-y-3 pt-2">
+                    <details class="group bg-slate-50 border border-slate-200 rounded-xl overflow-hidden">
+                        <summary class="flex justify-between items-center p-3 text-xs font-bold text-blue-600 cursor-pointer select-none hover:bg-slate-100">
+                            <span>Beispiel einblenden (Wählerstichprobe $n=100$)</span>
+                            <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-open:rotate-180"></i>
+                        </summary>
+                        <div class="p-4 border-t border-slate-200 text-xs text-slate-600 bg-white space-y-2 leading-relaxed">
+                            <p><strong>Szenario:</strong> Kandidat Müller hofft auf $>50\%$ der Stimmen. Von $100$ Befragten stimmen $65$ für ihn ($X \sim B_{100; 0,5}$).</p>
+                            <p><strong>Berechnung:</strong> $P(X \ge 65) \approx 0,0018 = \mathbf{0,18\%}$.</p>
+                            <p><strong>Fazit:</strong> Wegen der extrem geringen Wahrscheinlichkeit wird die Nullhypothese verworfen. Herr Müller erhält sehr wahrscheinlich mehr als $50\%$ der Stimmen.</p>
+                        </div>
+                    </details>
+
+                    <details class="group bg-slate-50 border border-slate-200 rounded-xl overflow-hidden">
+                        <summary class="flex justify-between items-center p-3 text-xs font-bold text-blue-600 cursor-pointer select-none hover:bg-slate-100">
+                            <span>Beispiel einblenden (Würfeltest $n=200, \alpha=5\%$)</span>
+                            <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-open:rotate-180"></i>
+                        </summary>
+                        <div class="p-4 border-t border-slate-200 text-xs text-slate-600 bg-white space-y-2 leading-relaxed">
+                            <p><strong>Szenario:</strong> Ein Würfel wird $200$-mal geworfen. Teste bei $\alpha=0,05$, ob die Augenzahl $3$ fair gewürfelt wird ($H_0: p = \frac{1}{6}$, $H_1: p \neq \frac{1}{6}$).</p>
+                            <div class="bg-slate-50 p-2.5 rounded font-mono text-[11px] space-y-1">
+                                <div>• Verteilung: $X \sim B_{200; 1/6}$</div>
+                                <div>• Untere Grenze: $P(X \le a) > 0,025 \rightarrow a = 23$</div>
+                                <div>• Obere Grenze: $P(X \le b) > 0,975 \rightarrow b = 44$</div>
+                                <div>• Annahmebereich: $A = [23; 44]$</div>
+                            </div>
+                            <p><strong>Fazit:</strong> Fällt die 3 weniger als $23$-mal oder mehr als $44$-mal, gilt der Würfel als gezinkt. Liegt das Ergebnis im Intervall $[23; 44]$, wird der Würfel als korrekt eingestuft.</p>
+                        </div>
+                    </details>
                 </div>
             </div>
         </section>
